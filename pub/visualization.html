@@ -1,0 +1,26 @@
+<html>
+<head>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.css" rel="stylesheet" type="text/css" />
+
+    <style type="text/css">
+        #asoiaf {
+            width: 100vw;
+            height: 100vh;
+        }
+    </style>
+</head>
+<body>
+  <div id="asoiaf"></div>
+
+  <script type="text/javascript" src="asoiaf_nodes_test.js"></script>
+  <script type="text/javascript" src="asoiaf_edges.js"></script>
+  <script type="text/javascript">
+      // create a network
+      var container = document.getElementById('asoiaf');
+      var options = {layout: {improvedLayout: false}};
+      // initialize
+      var network = new vis.Network(container, {nodes: nodes, edges: edges}, options);
+  </script>
+</body>
+</html>

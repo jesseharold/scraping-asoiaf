@@ -1,0 +1,3 @@
+*.sqlite
+bs4/
+.DSstore
