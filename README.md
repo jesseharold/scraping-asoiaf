@@ -10,8 +10,8 @@ scrapes information about book chapters from westeros.org's wiki
 ## to do:
 1. make tables relate to each other using unique IDs instead of names, which aren't unique
 2. decide how best to organize the data in visualization
-..* region, house, character, relationships
-..* book, chapter, character, relationships
-..* all characters with connections based on family, house, allegiance, and chapter appearance
+  * region, house, character, relationships
+  * book, chapter, character, relationships
+  * all characters with connections based on family, house, allegiance, and chapter appearance
 3. decide which library if any to use for vis
 4. write python to create js files and refine visualization
