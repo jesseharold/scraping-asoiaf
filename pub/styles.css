@@ -1,0 +1,68 @@
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+#asoiaf {
+  width: 100vw;
+  height: 100vh;
+}
+
+h2 {
+  margin-top: 5px;
+  width: 100%;
+}
+
+.book {
+  background-color: #d1d1e6;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  height: 45px;
+  margin: 40px 10px 40px 60px;
+  overflow: hidden;
+  padding: 10px;
+}
+
+#a-game-of-thrones { background-color: #C4CAE8; }
+#a-clash-of-kings { background-color: #B8D7FF; }
+#a-storm-of-swords { background-color: #E4F0FF; }
+#a-feast-for-crows { background-color: #C4DEE8; }
+#a-dance-with-dragons { background-color: #D7FEFF; }
+
+.book:hover {
+  height: auto;
+}
+
+.chapter {
+  background-color: #fff;
+  background-color: rgba(255, 255, 255, .8);
+  border: 1px solid #999;
+  height: 60px;
+  margin: 10px;
+  padding: 5px;
+  width: 80px;
+}
+
+.chapter:hover {
+  background-color: #fff;
+  height: auto;
+  min-height: 60px;
+  width: 275px;
+}
+
+.chapter .chars {
+  color: #666;
+  display: none;
+  font-size: 10px;
+  font-style: italic;
+  padding: 0 10px;
+}
+
+.chapter .chars h3 {
+  margin: 5px -10px;
+}
+
+.chapter:hover .chars {
+  display: block;
+}

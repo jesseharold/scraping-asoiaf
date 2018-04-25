@@ -1,26 +1,54 @@
 <html>
 <head>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.js"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.css" rel="stylesheet" type="text/css" />
-
-    <style type="text/css">
-        #asoiaf {
-            width: 100vw;
-            height: 100vh;
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="styles.css" />
 </head>
 <body>
-  <div id="asoiaf"></div>
+  <div id="asoiaf">
+    <h1>A Song of Ice and Fire</h1>
+  </div>
 
-  <script type="text/javascript" src="asoiaf_nodes_test.js"></script>
-  <script type="text/javascript" src="asoiaf_edges.js"></script>
+  <script type="text/javascript" src="asoiaf_chapters.js"></script>
+  <script type="text/javascript" src="asoiaf_characters.js"></script>
   <script type="text/javascript">
-      // create a network
       var container = document.getElementById('asoiaf');
-      var options = {layout: {improvedLayout: false}};
+
       // initialize
-      var network = new vis.Network(container, {nodes: nodes, edges: edges}, options);
+      addBook("A Game of Thrones");
+      addBook("A Clash of Kings");
+      addBook("A Storm of Swords");
+      addBook("A Feast for Crows");
+      addBook("A Dance with Dragons");
+
+      function addBook(title){
+        const book = chapters.filter(p => p.book == title);
+        const bookTitle = book[0].book;
+        const shortTitle = bookTitle.split(" ").join("-").toLowerCase();
+
+        container.insertAdjacentHTML('beforeend', '<div class="book" id="'
+          + shortTitle
+          + '"><h2>' + bookTitle + '</h2></div>'
+        );
+
+        addChapter(document.getElementById(shortTitle), book);
+      }
+
+      function addChapter(bookContainer, book){
+        for (var i=0; i<book.length; i++){
+          let charsCode = "";
+          book[i].characters.map(char => {charsCode += '<div class="character">' + char + '</div>';});
+
+          bookContainer.insertAdjacentHTML('beforeend',
+            '<div class="chapter" data-pos="'
+            + book[i].position
+            + '" id="'
+            + book[i].label + '">'
+            + book[i].label
+            + '<div class="chars"><h3>Characters Appearing or Mentioned</h3>' + charsCode + '</div>'
+            + '</div>'
+          );
+        }
+      }
+
   </script>
 </body>
 </html>
